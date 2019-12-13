@@ -28,7 +28,7 @@ class Releases {
 
     submethod TWEAK() {
         @!releases.push: Release.new(dir => $_) for $!release-dir.dir;
-        @!releases.sort: { $^b leg $^a };
+        @!releases.sort: { $^b.version leg $^a.version };
     }
 
     method get-latest-bin($platform) {
