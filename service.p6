@@ -1,8 +1,11 @@
 use Cro::HTTP::Log::File;
 use Cro::HTTP::Server;
+use Cro::WebApp::Template;
 use Routes;
 use Releases;
+use Homepage;
 
+template-location $*PROGRAM.parent.add('templates');
 
 my $release-dir = %*ENV<RELEASE_DIR>;
 if !$release-dir {
@@ -12,6 +15,8 @@ if !$release-dir {
 die "$release-dir is not a directory!" if !$release-dir.d;
 
 my $releases = Releases.new: release-dir => $release-dir;
+
+my $homepage = Homepage.new;
 
 my $host = %*ENV<RAKUBREW_ORG_HOST> || 'localhost';
 my $port = %*ENV<RAKUBREW_ORG_PORT> || 10000;
@@ -26,7 +31,7 @@ my Cro::Service $http = Cro::HTTP::Server.new(
         certificate-file => %*ENV<RAKUBREW_ORG_TLS_CERT> ||
             %?RESOURCES<fake-tls/server-crt.pem> || "resources/fake-tls/server-crt.pem",
     ),
-    application => routes($releases),
+    application => routes($releases, $homepage),
     after => [
         Cro::HTTP::Log::File.new(logs => $*OUT, errors => $*ERR)
     ]

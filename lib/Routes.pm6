@@ -1,10 +1,19 @@
 use Cro::HTTP::Router;
+use Cro::WebApp::Template;
 use Releases;
+use Homepage;
 
-sub routes($release-store) is export {
+sub routes($release-store, $homepage) is export {
     route {
-        get -> {
-            content 'text/html', "<h1> rakubrew.org </h1>";
+        get -> :$user-agent is header where m:i/wget|curl/ {
+            content 'text/plain', $homepage.render('console', 'pp');
+        }
+        get -> :$user-agent is header {
+            my $platform = $user-agent ~~ m:i/Windows/ ?? 'win' !! 'pp';
+            content 'text/html', render-template('base.crotmp', {
+                content     => $homepage.render('browser', $platform),
+                head-matter => '<link rel="stylesheet" href="css/' ~ ($platform eq 'win' ?? 'win.css' !! 'linux.css') ~ '">',
+            });
         }
 
         get -> $platform where any($release-store.platforms) {
@@ -20,6 +29,10 @@ sub routes($release-store) is export {
 
         get -> 'releases' {
             content 'application/json', $release-store.get-index;
+        }
+
+        get -> *@path {
+            static 'public', @path;
         }
     }
 }

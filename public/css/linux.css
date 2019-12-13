@@ -1,0 +1,76 @@
+body {
+    background-color: #000000;
+    color: #E5E5E5;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.black {
+    color: #000000;
+}
+.red {
+    color: #CD0000;
+}
+
+.green {
+    color: #00CD00;
+}
+
+.yellow {
+    color: #CDCD00;
+}
+
+.blue {
+    color: #0000EE;
+}
+
+.magenta {
+    color: #CD00CD;
+}
+
+.cyan {
+    color: #00CDCD;
+}
+
+.white {
+    color: #E5E5E5;
+}
+
+.bright-black {
+    color: #7F7F7F;
+}
+
+.bright-red {
+    color: #FF0000;
+}
+
+.bright-green {
+    color: #00FF00;
+}
+
+.bright-yellow {
+    color: #FFFF00;
+}
+
+.bright-blue {
+    color: #5C5CFF;
+}
+
+.bright-magenta {
+    color: #FF00FF;
+}
+
+.bright-cyan {
+    color: #00FFFF;
+}
+
+.bright-white {
+    color: #FFFFFF;
+}
+

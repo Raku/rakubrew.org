@@ -8,7 +8,9 @@
     ""
   ],
   "depends": [
-    "Cro::HTTP"
+    "Cro::HTTP",
+    "Cro::WebApp",
+    "HTML::Escape"
   ],
   "source-url": "Write me!",
   "auth": "Write me!",
