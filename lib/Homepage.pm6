@@ -63,11 +63,15 @@ class Homepage {
     has $!template = %?RESOURCES<homepage.md>.slurp;
     has $!console-colorizer = ConsoleColorizer.new;
     has $!html-colorizer = HTMLColorizer.new;
+    has $.releases is required;
 
     method !colorify($platform, $client, $c) {
         my $page = $!template;
 
         $page = escape-html $page if $client eq 'browser';
+
+        my $ver-str = 'v' ~ $!releases.get-latest-version;
+        $page ~~ s:g[ \(ver\(\)ver\) ] = ' ' x (4 - $ver-str.elems) ~ $ver-str;
 
         $page ~~ s:g[ \n \(platform\-(\w+)\( (.+?) \n \)platform\-$0\) ] = $platform eq $0 ?? $1 !! '';
 

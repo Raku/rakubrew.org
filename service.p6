@@ -16,7 +16,7 @@ die "$release-dir is not a directory!" if !$release-dir.d;
 
 my $releases = Releases.new: release-dir => $release-dir;
 
-my $homepage = Homepage.new;
+my $homepage = Homepage.new: :$releases;
 
 my $host = %*ENV<RAKUBREW_ORG_HOST> || 'localhost';
 my $port = %*ENV<RAKUBREW_ORG_PORT> || 10000;

@@ -39,6 +39,10 @@ class Releases {
         }
     }
 
+    method get-latest-version() {
+        @!releases[0].version;
+    }
+
     method get-index() {
         my %index;
         for @!releases -> $release {
