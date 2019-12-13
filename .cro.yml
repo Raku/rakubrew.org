@@ -1,0 +1,15 @@
+---
+entrypoint: service.p6
+links:  []
+env:  []
+cro: 1
+id: rakubrew.org
+endpoints: 
+  - 
+    host-env: RAKUBREW_ORG_HOST
+    protocol: https
+    port-env: RAKUBREW_ORG_PORT
+    id: https
+    name: HTTPS
+name: rakubrew.org
+...

@@ -1,0 +1,34 @@
+{
+  "support": {
+    "source": "Write me!"
+  },
+  "description": "Write me!",
+  "version": "0.0.1",
+  "tags": [
+    ""
+  ],
+  "depends": [
+    "Cro::HTTP"
+  ],
+  "source-url": "Write me!",
+  "auth": "Write me!",
+  "license": "Write me!",
+  "provides": {
+    "Routes.pm6": "lib/Routes.pm6"
+  },
+  "build-depends": [
+  ],
+  "perl": "6.*",
+  "authors": [
+    ""
+  ],
+  "name": "rakubrew.org",
+  "resources": [
+    "fake-tls/ca-crt.pem",
+    "fake-tls/server-crt.pem",
+    "fake-tls/server-key.pem"
+  ],
+  "test-depends": [
+  ],
+  "meta-version": "0"
+}
