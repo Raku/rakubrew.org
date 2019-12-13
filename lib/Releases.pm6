@@ -5,12 +5,12 @@ my %platforms =
 ;
 
 class Release {
-    has $.version;
-    has $.changes;
+    has UInt $.version;
+    has Str $.changes;
     has IO::Path $.dir is required;
 
     submethod TWEAK() {
-        $!version = $!dir.basename;
+        $!version = $!dir.basename.Int;
         $!changes = $!dir.add('changes').slurp;
     }
 
@@ -49,6 +49,7 @@ class Releases {
             %index<latest> //=  $release.version;
             %index<latest> max= $release.version;
         }
+        %index<releases> .= sort: { $^b<version> leg $^a<version> };
         %index;
     }
 

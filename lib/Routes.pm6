@@ -17,5 +17,9 @@ sub routes($release-store) is export {
                 .status = 200;
             }
         }
+
+        get -> 'releases' {
+            content 'application/json', $release-store.get-index;
+        }
     }
 }
