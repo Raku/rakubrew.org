@@ -93,7 +93,7 @@ class Homepage {
             my %urls;
             $page ~~ s:g[ \(url\( \[ (\d+) \]\: ' ' (.+?) \)url\) ] = {
                 %urls{$0} = $1;
-                "[<a name=\"link-$0\">{$c.color(green, $0)}</a>]: <a href=\"$1\">{$c.color(magenta, $1)}</a>";
+                "[<a name=\"link-$0\">{$c.color(green, $0)}</a>]: <a href=\"$1\">{$c.color(bright-magenta, $1, :ul)}</a>";
             }();
 
             $page ~~ s:g[ \(link\( \[ (.+?) \]\[ (.+?) \] \)link\) ]
@@ -102,16 +102,22 @@ class Homepage {
             my $html-tick = escape-html('`');
             $page ~~ s:g[ \(code\( $html-tick (.+?) $html-tick \)code\) ]
                 = $c.color(green, "`$0`", :bold);
+
+            $page ~~ s:g[ \(inline_url\( (.+?) \)inline_url\) ]
+                = "<a href=\"$0\">{$c.color(bright-magenta, $0, :ul)}</a>";
         }
         else {
             $page ~~ s:g[ \(url\( \[ (\d+) \]\: ' ' (.+?) \)url\) ]
-                = "[{$c.color(green, $0)}]: {$c.color(magenta, $1)}";
+                = "[{$c.color(green, $0)}]: {$c.color(bright-magenta, $1, :ul)}";
 
             $page ~~ s:g[ \(link\( \[ (.+?) \]\[ (.+?) \] \)link\) ]
                 = "[{$c.color(bright-magenta, $0, :ul)}][{$c.color(green, $1)}]";
 
             $page ~~ s:g[ \(code\( \` (.+?) \` \)code\) ]
                 = $c.color(green, "`$0`", :bold);
+
+            $page ~~ s:g[ \(inline_url\( (.+?) \)inline_url\) ]
+                = $c.color(bright-magenta, $0, :ul);
         }
 
         $page;

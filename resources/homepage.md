@@ -18,7 +18,7 @@ installed in parallel and switch between them. It's a (link([perlbrew][2])link) 
 ============)h1)
 
 (platform-pp(
-    curl https://rakubrew.org/pp/rakubrew > ~/rakubrew
+    curl (inline_url(https://rakubrew.org/pp/rakubrew)inline_url) > ~/rakubrew
     chmod +x ~/rakubrew
     RAKUBREW_HOME=`~/rakubrew home`
     mv ~/rakubrew $RAKUBREW_HOME/bin
@@ -27,7 +27,7 @@ installed in parallel and switch between them. It's a (link([perlbrew][2])link) 
 (platform-win(
 On Windows CMD do:
 
-    curl https://rakubrew.org/win/rakubrew > %USERPROFILE%/rakubrew
+    # Download (inline_url(https://rakubrew.org/win/rakubrew)inline_url) and place it in %USERPROFILE%/rakubrew
     # TODO: The following is not right
     SET RAKUBREW_HOME=`~/rakubrew home`
     mv %USERPROFILE%/rakubrew %RAKUBREW_HOME%/bin
@@ -35,14 +35,14 @@ On Windows CMD do:
 
 On Windows PowerShell do:
 
-    curl https://rakubrew.org/win/rakubrew > $Env:USERPROFILE/rakubrew
+    Invoke-WebRequest -Uri (inline_url(https://rakubrew.org/win/rakubrew)inline_url) -OutFile $Env:USERPROFILE/rakubrew
     # TODO: The following is not right
     RAKUBREW_HOME = "$Env:USERPROFILE\rakubrew home"
     mv %USERPROFILE%/rakubrew %RAKUBREW_HOME%/bin
     Add-Content -Force -Path \$PROFILE -Value '$RAKUBREW_HOME/bin/rakubrew init PowerShell | Out-String | Invoke-Expression'
 )platform-win)
 (platform-macos(
-    curl https://rakubrew.org/macos/rakubrew > ~/rakubrew
+    curl (inline_url(https://rakubrew.org/macos/rakubrew)inline_url) > ~/rakubrew
     chmod +x ~/rakubrew
     RAKUBREW_HOME=`~/rakubrew home`
     mv ~/rakubrew $RAKUBREW_HOME/bin
@@ -76,9 +76,9 @@ version nor the (code(`local`)code) version are active.
 The (code(`shell`)code) version changes the active Raku version just in the current shell.
 Closing the current shell also looses the (code(`shell`)code) version.
 
-The (code(`local`)code) version is specific to a folder. When CWD is in that folder or a sub folder
-that version of Raku is used. Only works in (code(`shim`)code) mode. To unset a local version
-one must delete the (code(`.RAKU_VERSION`)code) file in the respective folder.
+The (code(`local`)code) version is specific to a folder. When CWD is in that folder or a sub
+folder that version of Raku is used. Only works in (code(`shim`)code) mode. To unset a
+local version one must delete the (code(`.RAKU_VERSION`)code) file in the respective folder.
 
 
 (h1(Modes
@@ -133,7 +133,8 @@ system, delete the  (code(`~/.rakubrew`)code) and (code(`~/.local/share/rakubrew
 In case your git binary is not in the (code(`PATH`)code) on your system, you can specify
 a custom path to the git binary using the (code(`GIT_BINARY`)code) environment variable:
 
-    GIT_BINARY="%USERPROFILE%\Local Settings\Application Data\GitHub\PORTAB~1\bin\git.exe" rakubrew build all
+    GIT_BINARY="%USERPROFILE%\Local Settings\Application Data\GitHub\
+        PORTAB~1\bin\git.exe" rakubrew build all
 
 
 (h2(Git clone failing
