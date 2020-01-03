@@ -16,16 +16,16 @@ installed in parallel and switch between them. It's a (link([perlbrew][2])link) 
 (h1(Download
 ========)h1)
 
-*nix:    (inline_url(https://rakubrew.org/pp/rakubrew)inline_url)
-Mac OS:  (inline_url(https://rakubrew.org/macos/rakubrew)inline_url)
-Windows: (inline_url(https://rakubrew.org/win/rakubrew.exe)inline_url)
+*nix:    (inline_url(https://rakubrew.org/pp)inline_url)
+Mac OS:  (inline_url(https://rakubrew.org/macos)inline_url)
+Windows: (inline_url(https://rakubrew.org/win)inline_url)
 
 
 (h1(Installation
 ============)h1)
 
 (platform-pp(
-    curl (inline_url(https://rakubrew.org/pp/rakubrew)inline_url) > ~/rakubrew
+    curl (inline_url(https://rakubrew.org/pp)inline_url) > ~/rakubrew
     chmod +x ~/rakubrew
     RAKUBREW_HOME=`~/rakubrew home`
     mv ~/rakubrew $RAKUBREW_HOME/bin
@@ -34,7 +34,7 @@ Windows: (inline_url(https://rakubrew.org/win/rakubrew.exe)inline_url)
 (platform-win(
 On Windows CMD do:
 
-    # Download (inline_url(https://rakubrew.org/win/rakubrew.exe)inline_url) and place it in %USERPROFILE%/rakubrew
+    # Download (inline_url(https://rakubrew.org/win)inline_url) and place it in %USERPROFILE%/rakubrew
     # TODO: The following is not right
     SET RAKUBREW_HOME=`~/rakubrew home`
     mv %USERPROFILE%/rakubrew %RAKUBREW_HOME%/bin
@@ -42,14 +42,14 @@ On Windows CMD do:
 
 On Windows PowerShell do:
 
-    Invoke-WebRequest -Uri (inline_url(https://rakubrew.org/win/rakubrew.exe)inline_url) -OutFile $Env:USERPROFILE/rakubrew
+    Invoke-WebRequest -Uri (inline_url(https://rakubrew.org/win)inline_url) -OutFile $Env:USERPROFILE/rakubrew
     # TODO: The following is not right
     RAKUBREW_HOME = "$Env:USERPROFILE\rakubrew home"
     mv %USERPROFILE%/rakubrew %RAKUBREW_HOME%/bin
     Add-Content -Force -Path \$PROFILE -Value '$RAKUBREW_HOME/bin/rakubrew init PowerShell | Out-String | Invoke-Expression'
 )platform-win)
 (platform-macos(
-    curl (inline_url(https://rakubrew.org/macos/rakubrew)inline_url) > ~/rakubrew
+    curl (inline_url(https://rakubrew.org/macos)inline_url) > ~/rakubrew
     chmod +x ~/rakubrew
     RAKUBREW_HOME=`~/rakubrew home`
     mv ~/rakubrew $RAKUBREW_HOME/bin
