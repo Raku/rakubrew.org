@@ -13,6 +13,13 @@ tool. It allows to have multiple versions of different Raku implementations
 installed in parallel and switch between them. It's a (link([perlbrew][2])link) and
 (link([plenv][3])link) look alike and supports both flavours of commands.
 
+(h1(Download
+========)h1)
+
+*nix:    (inline_url(https://rakubrew.org/pp/rakubrew)inline_url)
+Mac OS:  (inline_url(https://rakubrew.org/macos/rakubrew)inline_url)
+Windows: (inline_url(https://rakubrew.org/win/rakubrew.exe)inline_url)
+
 
 (h1(Installation
 ============)h1)
