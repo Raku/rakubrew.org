@@ -24,28 +24,30 @@ class Release {
 
 class Releases {
     has $.release-dir is required;
-    has @!releases;
 
-    submethod TWEAK() {
-        @!releases.push: Release.new(dir => $_) for $!release-dir.dir;
-        @!releases.sort: { $^b.version leg $^a.version };
+    method !get-releases() {
+        my @releases;
+        @releases.push: Release.new(dir => $_) for $!release-dir.dir;
+        @releases .= sort: { $^b.version leg $^a.version };
+        @releases;
     }
 
     method get-latest-bin($platform) {
-        die 'no releases found' unless @!releases.elems;
+        my @releases = self!get-releases;
+        die 'no releases found' unless @releases.elems;
         {
             filename => %platforms{$platform}<bin>,
-            path     => @!releases[0].get-bin($platform),
+            path     => @releases[0].get-bin($platform),
         }
     }
 
     method get-latest-version() {
-        @!releases[0].version;
+        self!get-releases()[0].version;
     }
 
     method get-index() {
         my %index;
-        for @!releases -> $release {
+        for self!get-releases -> $release {
             %index<releases>.push: {
                 version => $release.version,
                 changes => $release.changes,
@@ -53,7 +55,6 @@ class Releases {
             %index<latest> //=  $release.version;
             %index<latest> max= $release.version;
         }
-        %index<releases> .= sort: { $^b<version> leg $^a<version> };
         %index;
     }
 
