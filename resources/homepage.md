@@ -34,7 +34,7 @@ Windows: (inline_url(https://rakubrew.org/win/rakubrew.exe)inline_url)
 (platform-win(
 On Windows CMD do:
 
-    # Download (inline_url(https://rakubrew.org/win/rakubrew)inline_url) and place it in %USERPROFILE%/rakubrew
+    # Download (inline_url(https://rakubrew.org/win/rakubrew.exe)inline_url) and place it in %USERPROFILE%/rakubrew
     # TODO: The following is not right
     SET RAKUBREW_HOME=`~/rakubrew home`
     mv %USERPROFILE%/rakubrew %RAKUBREW_HOME%/bin
@@ -42,7 +42,7 @@ On Windows CMD do:
 
 On Windows PowerShell do:
 
-    Invoke-WebRequest -Uri (inline_url(https://rakubrew.org/win/rakubrew)inline_url) -OutFile $Env:USERPROFILE/rakubrew
+    Invoke-WebRequest -Uri (inline_url(https://rakubrew.org/win/rakubrew.exe)inline_url) -OutFile $Env:USERPROFILE/rakubrew
     # TODO: The following is not right
     RAKUBREW_HOME = "$Env:USERPROFILE\rakubrew home"
     mv %USERPROFILE%/rakubrew %RAKUBREW_HOME%/bin
