@@ -211,7 +211,7 @@ called. This is only necessary in (code(`shim`)code) mode.
 List all Raku versions that can be installed.
 
 
-(h2(`build [jvm|moar|moar-blead|all] [tag|branch|sha-1] [--configure-opts=]`
+(h2(`build[-rakudo] [jvm|moar|moar-blead|all] [tag|branch|sha-1] [--configure-opts=]`
 ------------------------------------------------------------------------)h2)
 
 Build a Raku version. The arguments are:
@@ -240,6 +240,12 @@ Register an externaly built / installed Raku version with rakubrew.
 -----------)h2)
 
 Install Zef into the current Raku version.
+
+
+(h2(`download[-rakudo] [<%backends%>] [<rakudo-version>]`
+-----------)h2)
+
+Download and install a precompiled release archive.
 
 
 (h2(`exec <command> [command-args]`
