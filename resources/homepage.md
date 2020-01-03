@@ -185,10 +185,10 @@ Show or set the globally configured Raku version.
 Show, set or unset the shell version.
 
 
-(h2(`local [version]`
+(h2(`local [--unset|version]`
 -----------------)h2)
 
-Show or set the local version.
+Show, set or unset the local version.
 
 
 (h2(`nuke [version]` or `unregister [version]`
