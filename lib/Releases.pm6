@@ -11,7 +11,7 @@ class Release {
 
     submethod TWEAK() {
         $!version = $!dir.basename.Int;
-        $!changes = $!dir.add('changes').slurp;
+        $!changes = $!dir.add('changes').slurp.trim;
     }
 
     method get-bin($platform) {
