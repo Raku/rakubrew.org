@@ -29,7 +29,7 @@ Windows: (inline_url(https://rakubrew.org/win)inline_url)
     chmod +x ~/rakubrew
     RAKUBREW_HOME=`~/rakubrew home`
     mv ~/rakubrew $RAKUBREW_HOME/bin
-    echo 'eval "$($RAKUBREW_HOME/bin/rakubrew init auto)"' >> ~/.profile
+    echo "eval \"\$($RAKUBREW_HOME/bin/rakubrew init Bash)\"" >> ~/.bashrc
 )platform-pp)
 (platform-win(
 On Windows CMD do:
@@ -53,7 +53,7 @@ On Windows PowerShell do:
     chmod +x ~/rakubrew
     RAKUBREW_HOME=`~/rakubrew home`
     mv ~/rakubrew $RAKUBREW_HOME/bin
-    echo 'eval "$($RAKUBREW_HOME/bin/rakubrew init auto)"' >> ~/.profile
+    echo "eval \"\$($RAKUBREW_HOME/bin/rakubrew init Bash)\"" >> ~/.bashrc
 )platform-macos)
 
 
