@@ -1,7 +1,7 @@
 my %platforms =
     win   => { bin => 'rakubrew.exe' },
     macos => { bin => 'rakubrew' },
-    pp    => { bin => 'rakubrew' },
+    perl  => { bin => 'rakubrew' },
 ;
 
 class Release {
