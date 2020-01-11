@@ -1,0 +1,94 @@
+body {
+    font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif !important;
+    font-weight: 400 !important;
+    font-size: .8rem !important;
+    line-height: 1rem !important;
+
+    background-color: #012456;
+    color: #EEEDF0;
+}
+
+pre {
+    font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif !important;
+    font-weight: 400 !important;
+    font-size: .8rem !important;
+    line-height: 1rem !important;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.black {
+    color: #0C0C0C;
+}
+.red {
+    color: #C50F1F;
+}
+
+.green {
+    color: #13A10E;
+}
+
+.yellow {
+    color: #C19C00;
+}
+
+.blue {
+    /* CMD */
+    /* color: #0037DA; */
+    /* PowerShell */
+    color: #012456;
+}
+
+.magenta {
+    /* CMD */
+    /* color: #881798; */
+    /* PowerShell */
+    color: #EEEDF0;
+}
+
+.cyan {
+    color: #3A96DD;
+}
+
+.white {
+    color: #CCCCCC;
+}
+
+.bright-black {
+    color: #767676;
+}
+
+.bright-red {
+    color: #E74856;
+}
+
+.bright-green {
+    color: #16C60C;
+}
+
+.bright-yellow {
+    color: #F9F1A5;
+}
+
+.bright-blue {
+    color: #3B78FF;
+}
+
+.bright-magenta {
+    color: #B4009E;
+}
+
+.bright-cyan {
+    color: #61D6D6;
+}
+
+.bright-white {
+    color: #F2F2F2;
+}
+
