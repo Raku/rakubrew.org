@@ -7,10 +7,13 @@ use Homepage;
 
 template-location $*PROGRAM.parent.add('templates');
 
-my $release-dir = %*ENV<RELEASE_DIR>;
+my $release-dir = %*ENV<RAKUBREW_ORG_RELEASES_DIR>;
 if !$release-dir {
     $release-dir = $*PROGRAM.parent.add: 'releases';
     $release-dir.mkdir if !$release-dir.e;
+}
+else {
+    $release-dir = $release-dir.IO;
 }
 die "$release-dir is not a directory!" if !$release-dir.d;
 
