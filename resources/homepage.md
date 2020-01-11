@@ -24,13 +24,13 @@ Windows: (inline_url(https://rakubrew.org/win)inline_url)
 (h1(Installation
 ============)h1)
 
-(platform-pp(
+(platform-linux(
     curl (inline_url(https://rakubrew.org/pp)inline_url) > ~/rakubrew
     chmod +x ~/rakubrew
     RAKUBREW_HOME=`~/rakubrew home`
     mv ~/rakubrew $RAKUBREW_HOME/bin
     echo "eval \"\$($RAKUBREW_HOME/bin/rakubrew init Bash)\"" >> ~/.bashrc
-)platform-pp)
+)platform-linux)
 (platform-win(
 On Windows CMD do:
 

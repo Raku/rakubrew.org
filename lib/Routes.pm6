@@ -9,7 +9,7 @@ sub routes($release-store, $homepage) is export {
             content 'text/plain', $homepage.render('console', 'pp');
         }
         get -> :$user-agent is header {
-            my $platform = $user-agent ~~ m:i/Windows/ ?? 'win' !! 'pp';
+            my $platform = $user-agent ~~ m:i/Windows/ ?? 'win' !! 'linux';
             content 'text/html', render-template('base.crotmp', {
                 content     => $homepage.render('browser', $platform),
                 head-matter => '<link rel="stylesheet" href="css/' ~ ($platform eq 'win' ?? 'win.css' !! 'linux.css') ~ '">',
