@@ -16,7 +16,7 @@ installed in parallel and switch between them. It's a (link([perlbrew][2])link) 
 (h1(Download
 ========)h1)
 
-*nix:    (inline_url(https://rakubrew.org/pp)inline_url)
+*nix:    (inline_url(https://rakubrew.org/perl)inline_url)
 Mac OS:  (inline_url(https://rakubrew.org/macos)inline_url)
 Windows: (inline_url(https://rakubrew.org/win)inline_url)
 
@@ -25,7 +25,7 @@ Windows: (inline_url(https://rakubrew.org/win)inline_url)
 ============)h1)
 
 (platform-linux(
-    curl (inline_url(https://rakubrew.org/pp)inline_url) > ~/rakubrew
+    curl (inline_url(https://rakubrew.org/perl)inline_url) > ~/rakubrew
     chmod +x ~/rakubrew
     RAKUBREW_HOME=`~/rakubrew home`
     mv ~/rakubrew $RAKUBREW_HOME/bin
