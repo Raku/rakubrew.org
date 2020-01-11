@@ -301,8 +301,8 @@ create a new issue.
 (h1(Authors
 =======)h1)
 
-Patrick Böker (full rewrite and current maintainer)
-Tadeusz Sośnierz (original author)
+(i(-)i) Patrick Böker (full rewrite and current maintainer)
+(i(-)i) Tadeusz Sośnierz (original author)
 
 
 (url([1]: https://raku.org/)url)
