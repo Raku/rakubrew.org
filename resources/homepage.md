@@ -28,17 +28,19 @@ Windows: (inline_url(https://rakubrew.org/win)inline_url)
     curl (inline_url(https://rakubrew.org/perl)inline_url) > ~/rakubrew
     chmod +x ~/rakubrew
     RAKUBREW_HOME=`~/rakubrew home`
+    mkdir -p $RAKUBREW_HOME/bin
     mv ~/rakubrew $RAKUBREW_HOME/bin
-    echo "eval \"\$($RAKUBREW_HOME/bin/rakubrew init Bash)\"" >> ~/.bashrc
+    $RAKUBREW_HOME/bin/rakubrew init # Follow the on screen instructions
 )platform-linux)
 (platform-win(
 On Windows CMD do:
 
-    # Download (inline_url(https://rakubrew.org/win)inline_url) and place it in %USERPROFILE%/rakubrew
+    # Download (inline_url(https://rakubrew.org/win)inline_url) and place it in %USERPROFILE%/rakubrew/bin
+    # In a CMD terminal execute the following commands.
     # TODO: The following is not right
     SET RAKUBREW_HOME=`~/rakubrew home`
     mv %USERPROFILE%/rakubrew %RAKUBREW_HOME%/bin
-    %RAKUBREW_HOME%/bin init # Further installation instructions
+    %RAKUBREW_HOME%/bin/rakubrew init # Further installation instructions
 
 On Windows PowerShell do:
 
@@ -52,8 +54,9 @@ On Windows PowerShell do:
     curl (inline_url(https://rakubrew.org/macos)inline_url) > ~/rakubrew
     chmod +x ~/rakubrew
     RAKUBREW_HOME=`~/rakubrew home`
+    mkdir -p $RAKUBREW_HOME/bin
     mv ~/rakubrew $RAKUBREW_HOME/bin
-    echo "eval \"\$($RAKUBREW_HOME/bin/rakubrew init Bash)\"" >> ~/.bashrc
+    $RAKUBREW_HOME/bin/rakubrew init # Follow the on screen instructions
 )platform-macos)
 
 
