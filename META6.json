@@ -1,36 +1,31 @@
 {
-  "support": {
-    "source": "Write me!"
+  "name":         "rakubrew.org",
+  "description":  "rakubrew.org website",
+  "version":      "0.0.1",
+  "meta-version": "0",
+  "perl":         "6.*",
+  "source-url":   "https://github.com/Raku/rakubrew.org.git",
+  "auth":         "github:patrickbkr",
+  "license":      "Artistic-2.0",
+  "authors": [
+    "Patrick Böker"
+  ],
+  "tags": [ "web", "app" ],
+  "provides": {
+    "Homepage.pm6": "lib/Homepage.pm6",
+    "Releases.pm6": "lib/Releases.pm6",
+    "Routes.pm6": "lib/Routes.pm6"
   },
-  "description": "Write me!",
-  "version": "0.0.1",
-  "tags": [
-    ""
+  "resources": [
+    "homepage.md"
   ],
   "depends": [
     "Cro::HTTP",
     "Cro::WebApp",
     "HTML::Escape"
   ],
-  "source-url": "Write me!",
-  "auth": "Write me!",
-  "license": "Write me!",
-  "provides": {
-    "Routes.pm6": "lib/Routes.pm6"
-  },
   "build-depends": [
   ],
-  "perl": "6.*",
-  "authors": [
-    ""
-  ],
-  "name": "rakubrew.org",
-  "resources": [
-    "fake-tls/ca-crt.pem",
-    "fake-tls/server-crt.pem",
-    "fake-tls/server-key.pem"
-  ],
   "test-depends": [
-  ],
-  "meta-version": "0"
+  ]
 }
