@@ -93,11 +93,11 @@ class Homepage {
             my %urls;
             $page ~~ s:g[ \(url\( \[ (\d+) \]\: ' ' (.+?) \)url\) ] = {
                 %urls{$0} = $1;
-                "[<a name=\"link-$0\">{$c.color(green, $0)}</a>]: <a href=\"$1\">{$c.color(bright-magenta, $1, :ul)}</a>";
+                "[<a name=\"link-$0\">{$c.color(green, $0, :ul)}</a>]: <a href=\"$1\">{$c.color(bright-magenta, $1, :ul)}</a>";
             }();
 
             $page ~~ s:g[ \(link\( \[ (.+?) \]\[ (.+?) \] \)link\) ]
-                = "[<a href=\"%urls{$1}\">{$c.color(bright-magenta, $0, :ul)}</a>][<a href=\"#link-$1\">{$c.color(green, $1)}</a>]";
+                = "[<a href=\"%urls{$1}\">{$c.color(bright-magenta, $0, :ul)}</a>][<a href=\"#link-$1\">{$c.color(green, $1, :ul)}</a>]";
 
             my $html-tick = escape-html('`');
             $page ~~ s:g[ \(code\( $html-tick (.+?) $html-tick \)code\) ]
