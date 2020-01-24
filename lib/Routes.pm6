@@ -16,7 +16,7 @@ sub routes($release-store, $homepage) is export {
             });
         }
 
-        get -> $platform where any($release-store.platforms) {
+        get -> $platform where any($release-store.platforms), $name where m/rakubrew(\.exe)?/ {
             my %release = $release-store.get-latest-bin: $platform;
             given response {
                 .append-header: 'Content-Type', 'application/octet-stream';

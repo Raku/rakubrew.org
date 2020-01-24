@@ -5,59 +5,95 @@
           (lr( |__|)lr)  (la((______/)la)(lk(__|__\)lk)(lu(____/)lu)(lb(|_____/__|    \_____>\/\_/  )lb)
                                                            (ver()ver)
 
-(h1(Intro
-=====)h1)
 
 rakubrew (called rakudobrew in a previous life) is a (link([Raku][1])link) installation
 tool. It allows to have multiple versions of different Raku implementations
 installed in parallel and switch between them. It's a (link([perlbrew][2])link) and
 (link([plenv][3])link) look alike and supports both flavours of commands.
 
-(h1(Download
+
+(h1(Features
 ========)h1)
 
-*nix:    (inline_url(https://rakubrew.org/perl)inline_url)
-Mac OS:  (inline_url(https://rakubrew.org/macos)inline_url)
-Windows: (inline_url(https://rakubrew.org/win)inline_url)
+(i(-)i) Works about anywhere
+    (i(-)i) Windows, MacOS, Linux, BSD
+    (i(-)i) Powershell, CMD, Bash, Zsh, Fish, ...
+(i(-)i) No dependencies except Perl on Unixy machines
+(i(-)i) Can get raku installed and running in seconds
+(i(-)i) Autocomplete
 
 
 (h1(Installation
 ============)h1)
 
 (platform-linux(
-    curl (inline_url(https://rakubrew.org/perl)inline_url) > ~/rakubrew
-    chmod +x ~/rakubrew
-    RAKUBREW_HOME=`~/rakubrew home`
-    mkdir -p $RAKUBREW_HOME/bin
-    mv ~/rakubrew $RAKUBREW_HOME/bin
-    $RAKUBREW_HOME/bin/rakubrew init # Follow the on screen instructions
+Just copy and paste the following piece of code into a console.
+
+    curl (inline_url(https://rakubrew.org/install-on-perl.sh)inline_url) | sh
 )platform-linux)
 (platform-win(
-On Windows CMD do:
+On (code(`CMD`)code) do:
 
-    # Download (inline_url(https://rakubrew.org/win)inline_url) and place it in %USERPROFILE%/rakubrew/bin
-    # In a CMD terminal execute the following commands.
-    # TODO: The following is not right
-    SET RAKUBREW_HOME=`~/rakubrew home`
-    mv %USERPROFILE%/rakubrew %RAKUBREW_HOME%/bin
-    %RAKUBREW_HOME%/bin/rakubrew init # Further installation instructions
+    powershell -Command "(New-Object Net.WebClient).DownloadFile('https://rakubrew.org/install-on-cmd.bat', '$env:USERPROFILE\install-on-cmd.bat')"
+    %USERPROFILE%\install-on-cmd.bat
 
-On Windows PowerShell do:
+On (code(`PowerShell`)code) do:
 
-    Invoke-WebRequest -Uri (inline_url(https://rakubrew.org/win)inline_url) -OutFile $Env:USERPROFILE/rakubrew
-    # TODO: The following is not right
-    RAKUBREW_HOME = "$Env:USERPROFILE\rakubrew home"
-    mv %USERPROFILE%/rakubrew %RAKUBREW_HOME%/bin
-    Add-Content -Force -Path \$PROFILE -Value '$RAKUBREW_HOME/bin/rakubrew init PowerShell | Out-String | Invoke-Expression'
+    . {iwr -useb https://rakubrew.org/install-on-powershell.ps1 } | iex
 )platform-win)
 (platform-macos(
-    curl (inline_url(https://rakubrew.org/macos)inline_url) > ~/rakubrew
-    chmod +x ~/rakubrew
-    RAKUBREW_HOME=`~/rakubrew home`
-    mkdir -p $RAKUBREW_HOME/bin
-    mv ~/rakubrew $RAKUBREW_HOME/bin
-    $RAKUBREW_HOME/bin/rakubrew init # Follow the on screen instructions
+Just copy and paste the following piece of code into a console.
+
+    curl (inline_url(https://rakubrew.org/install-on-macos.sh)inline_url) | sh
 )platform-macos)
+
+
+(h1(Bare bones installation
+=======================)h1)
+
+If the above installation script somehow doesn't work for you, you can install rakubrew
+manually.
+
+First download the right rakubrew executable for your platform:
+
+    Unix-ish: (inline_url(https://rakubrew.org/perl/rakubrew)inline_url)
+    Mac OS:   (inline_url(https://rakubrew.org/macos/rakubrew)inline_url)
+    Windows:  (inline_url(https://rakubrew.org/win/rakubrew.exe)inline_url)
+
+Put that file into a folder that's in your (code(`PATH`)code) and run
+
+    rakubrew mode shim
+
+That's all!
+
+
+(h2(`env` mode
+----------)h2)
+
+If you want to use (code(`env`)code) mode, use the (code(`shell`)code) command or use auto-completion,
+you need to install the shell hook. To get the instructions on how to do that
+with
+
+    rakubrew init
+
+
+(h2(Installation path
+-----------------)h2)
+
+To make rakubrew use a different directory to store its files set the (code(`RAKUBREW_HOME`)code)
+environment variable prior to calling it. Put the following into your (code(`.bashrc`)code) or similar:
+
+    export RAKUBREW_HOME=~/rakubrew (c(# or some other path)c)
+
+
+(h2(CPAN
+----)h2)
+
+Installation via (link([CPAN][4])link) is possible as well. Just use your favorite CPAN client
+to install (code(`App::Rakubrew`)code).
+
+    cpanm App::Rakubrew
+
 
 
 (h1(How
@@ -297,7 +333,7 @@ Run tests in the current or given version.
 (h1(Bugs'n'Development
 ==================)h1)
 
-rakubrew is developed on (link([Github][4])link). To report a bug, head over there and
+rakubrew is developed on (link([Github][5])link). To report a bug, head over there and
 create a new issue.
 
 
@@ -311,5 +347,5 @@ create a new issue.
 (url([1]: https://raku.org/)url)
 (url([2]: https://perlbrew.pl/)url)
 (url([3]: https://github.com/tokuhirom/plenv)url)
-(url([4]: https://github.com/rakubrew/App-Rakubrew/)url)
-
+(url([4]: https://metacpan.org/pod/App::Rakubrew)url)
+(url([5]: https://github.com/rakubrew/App-Rakubrew/)url)
