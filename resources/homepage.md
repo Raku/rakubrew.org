@@ -5,6 +5,13 @@
           (lr( |__|)lr)  (la((______/)la)(lk(__|__\)lk)(lu(____/)lu)(lb(|_____/__|    \_____>\/\_/  )lb)
                                                            (ver()ver)
 
+===============================================================================
+                                 DISCLAMER
+
+           This website and rakubrew is still in the test phase.
+    There has not been a release yet. The downloads will likely not work.
+        Stuff might be broken. So don't use any of this in production.
+===============================================================================
 
 rakubrew (called rakudobrew in a previous life) is a (link([Raku][1])link) installation
 tool. It allows to have multiple versions of different Raku implementations
