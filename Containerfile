@@ -9,7 +9,7 @@ RUN rm -rf releases .git .gitignore
 
 RUN zef install --deps-only . && perl6 -c -Ilib service.p6
 ENV RAKUBREW_ORG_PORT="10000"
-ENV RAKUBREW_ORG_HOST="localhost"
+ENV RAKUBREW_ORG_HOST="0.0.0.0"
 ENV RAKUBREW_ORG_RELEASES_DIR="/releases"
 EXPOSE 10000
 CMD perl6 -Ilib service.p6

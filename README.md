@@ -29,7 +29,6 @@ You can also build and run a container image while in the app root using:
 To run the container do:
 
     export REAKUBREW_ORG_RELEASES_DIR=/releases
-    export RAKUBREW_ORG_HOST=localhost
     export RAKUBREW_ORG_PORT=10000
     podman run --rm -p 10000:10000 --volume=[/releases/folder/on/host]:/releases:ro rakubrew.org
 
