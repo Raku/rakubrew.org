@@ -39,12 +39,11 @@ Just copy and paste the following piece of code into a console.
     curl (inline_url(https://rakubrew.org/install-on-perl.sh)inline_url) | sh
 )platform-linux)
 (platform-win(
-On (code(`CMD`)code) do:
+On (code(`CMD`)code) you need to download (inline_url(https://rakubrew.org/install-on-cmd.bat)inline_url) somewhere
+and then execute that script in a CMD terminal.
 
-    powershell -Command "(New-Object Net.WebClient).DownloadFile('https://rakubrew.org/install-on-cmd.bat', '$env:USERPROFILE\install-on-cmd.bat')"
-    %USERPROFILE%\install-on-cmd.bat
-
-On (code(`PowerShell`)code) do:
+On (code(`PowerShell`)code) just copy and paste the following piece of code into a
+Powershell window (Don't forget the "." at the start of the command!):
 
     . {iwr -useb https://rakubrew.org/install-on-powershell.ps1 } | iex
 )platform-win)
@@ -58,8 +57,8 @@ Just copy and paste the following piece of code into a console.
 (h1(Bare bones installation
 =======================)h1)
 
-If the above installation script somehow doesn't work for you, you can install rakubrew
-manually.
+If the above installation script somehow doesn't work for you, you can install
+rakubrew manually.
 
 First download the right rakubrew executable for your platform:
 
@@ -87,8 +86,10 @@ with
 (h2(Installation path
 -----------------)h2)
 
-To make rakubrew use a different directory to store its files set the (code(`RAKUBREW_HOME`)code)
-environment variable prior to calling it. Put the following into your (code(`.bashrc`)code) or similar:
+To make rakubrew use a different directory to store its files set the
+(code(`RAKUBREW_HOME`)code)
+environment variable prior to calling it. Put the following into your (code(`.bashrc`)code)
+or similar:
 
     export RAKUBREW_HOME=~/rakubrew (c(# or some other path)c)
 
@@ -96,11 +97,10 @@ environment variable prior to calling it. Put the following into your (code(`.ba
 (h2(CPAN
 ----)h2)
 
-Installation via (link([CPAN][4])link) is possible as well. Just use your favorite CPAN client
-to install (code(`App::Rakubrew`)code).
+Installation via (link([CPAN][4])link) is possible as well. Just use your favorite CPAN
+client to install (code(`App::Rakubrew`)code).
 
     cpanm App::Rakubrew
-
 
 
 (h1(How
@@ -232,7 +232,7 @@ Show, set or unset the shell version.
 
 
 (h2(`local [--unset|version]`
------------------)h2)
+-------------------------)h2)
 
 Show, set or unset the local version.
 
@@ -258,7 +258,7 @@ List all Raku versions that can be installed.
 
 
 (h2(`build[-rakudo] [jvm|moar|moar-blead|all] [tag|branch|sha-1] [--configure-opts=]`
-------------------------------------------------------------------------)h2)
+---------------------------------------------------------------------------------)h2)
 
 Build a Raku version. The arguments are:
 (i(-)i) The backend.
@@ -289,7 +289,7 @@ Install Zef into the current Raku version.
 
 
 (h2(`download[-rakudo] [<%backends%>] [<rakudo-version>]`
------------)h2)
+-----------------------------------------------------)h2)
 
 Download and install a precompiled release archive.
 
