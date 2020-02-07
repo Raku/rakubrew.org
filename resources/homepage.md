@@ -39,8 +39,8 @@ Just copy and paste the following piece of code into a console.
     curl (inline_url(https://rakubrew.org/install-on-perl.sh)inline_url) | sh
 )platform-linux)
 (platform-win(
-On (code(`CMD`)code) you need to download (inline_url(https://rakubrew.org/install-on-cmd.bat)inline_url) somewhere
-and then execute that script in a CMD terminal.
+On (code(`CMD`)code) you need to download (inline_url(https://rakubrew.org/install-on-cmd.bat)inline_url) and then
+execute that script in a CMD terminal.
 
 On (code(`PowerShell`)code) just copy and paste the following piece of code into a
 Powershell window (Don't forget the "." at the start of the command!):
