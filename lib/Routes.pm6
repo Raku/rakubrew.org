@@ -6,10 +6,12 @@ use Homepage;
 sub routes($release-store, $homepage) is export {
     route {
         get -> :$user-agent is header where m:i/wget|curl/ {
-            content 'text/plain', $homepage.render('console', 'pp');
+            content 'text/plain', $homepage.render('console', 'linux');
         }
         get -> :$user-agent is header {
-            my $platform = $user-agent ~~ m:i/Windows/ ?? 'win' !! 'linux';
+            my $platform = $user-agent ~~ m:i/Windows/ ?? 'win'
+                !! $user-agent ~~ m:i/ os \s x | Macintosh | iPhone | iPad | iPod / ?? 'macos'
+                !! 'linux';
             content 'text/html', render-template('base.crotmp', {
                 content     => $homepage.render('browser', $platform),
                 head-matter => '<link rel="stylesheet" href="css/' ~ ($platform eq 'win' ?? 'win.css' !! 'linux.css') ~ '">',
