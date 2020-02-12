@@ -347,7 +347,7 @@ create a new issue.
 (h1(Authors
 =======)h1)
 
-(i(-)i) Patrick Böker (full rewrite and current maintainer)
+(i(-)i) Patrick Böker (large rewrite and current maintainer)
 (i(-)i) Tadeusz Sośnierz (original author)
 
 
