@@ -337,6 +337,21 @@ Show installation instructions.
 Run tests in the current or given version.
 
 
+(h2(`help [--verbose|<command>]`
+----------------------------)h2)
+
+Display an overview of rakubrew commands.
+Add a specific command to display instructions for that command.
+Print the entire manual with the (code(`--verbose`)code) flag.
+
+
+(h2(`rakubrew-version`
+------------------)h2)
+
+Display the version of this rakubrew installation and some other information
+helpful for debugging. Include this information when you report a bug.
+
+
 (h1(Bugs'n'Development
 ==================)h1)
 
