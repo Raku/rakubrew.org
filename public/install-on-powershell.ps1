@@ -34,7 +34,7 @@ New-Item -Path $TMP_DIR -ItemType "directory" | Out-Null
 
 echo "Downloading rakubrew..."
 
-Invoke-WebRequest https://25-234419075-gh.circle-artifacts.com/0/rakubrew-windows.exe -OutFile "$TMP_DIR/rakubrew.exe"
+Invoke-WebRequest https://rakubrew.org/win/rakubrew.exe -OutFile "$TMP_DIR/rakubrew.exe"
 
 $RAKUBREW_HOME = . "$TMP_DIR/rakubrew.exe" home | Out-String
 $RAKUBREW_HOME = $RAKUBREW_HOME.trim()
