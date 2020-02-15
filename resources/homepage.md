@@ -370,4 +370,4 @@ create a new issue.
 (url([2]: https://perlbrew.pl/)url)
 (url([3]: https://github.com/tokuhirom/plenv)url)
 (url([4]: https://metacpan.org/pod/App::Rakubrew)url)
-(url([5]: https://github.com/rakubrew/App-Rakubrew/)url)
+(url([5]: https://github.com/Raku/App-Rakubrew/)url)
