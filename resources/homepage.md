@@ -8,7 +8,7 @@
 ===============================================================================
                                  DISCLAMER
 
-           This website and rakubrew is still in the test phase.
+           This website and rakubrew are still in the test phase.
     There has not been a release yet. The downloads will likely not work.
         Stuff might be broken. So don't use any of this in production.
 ===============================================================================
