@@ -8,7 +8,7 @@
 ===============================================================================
                                  DISCLAMER
 
-           This website and rakubrew is still in the test phase.
+           This website and rakubrew are still in the test phase.
     There has not been a release yet. The downloads will likely not work.
         Stuff might be broken. So don't use any of this in production.
 ===============================================================================
@@ -355,9 +355,10 @@ helpful for debugging. Include this information when you report a bug.
 (h1(Bugs'n'Development
 ==================)h1)
 
-rakubrew is developed on (link([Github][5])link). To report a bug, head over there and
+rakubrew is developed on (link([GitHub][5])link). To report a bug, head over there and
 create a new issue.
 
+The sources of this website are maintained in a separate (link([GitHub repository][6])link).
 
 (h1(Authors
 =======)h1)
@@ -371,3 +372,4 @@ create a new issue.
 (url([3]: https://github.com/tokuhirom/plenv)url)
 (url([4]: https://metacpan.org/pod/App::Rakubrew)url)
 (url([5]: https://github.com/Raku/App-Rakubrew/)url)
+(url([6]: https://github.com/Raku/rakubrew.org)url)
