@@ -358,6 +358,7 @@ helpful for debugging. Include this information when you report a bug.
 rakubrew is developed on (link([GitHub][5])link). To report a bug, head over there and
 create a new issue.
 
+The sources of this website are maintained in a separate (link([GitHub repository][6])link).
 
 (h1(Authors
 =======)h1)
@@ -371,3 +372,4 @@ create a new issue.
 (url([3]: https://github.com/tokuhirom/plenv)url)
 (url([4]: https://metacpan.org/pod/App::Rakubrew)url)
 (url([5]: https://github.com/Raku/App-Rakubrew/)url)
+(url([6]: https://github.com/Raku/rakubrew.org)url)
