@@ -355,7 +355,7 @@ helpful for debugging. Include this information when you report a bug.
 (h1(Bugs'n'Development
 ==================)h1)
 
-rakubrew is developed on (link([Github][5])link). To report a bug, head over there and
+rakubrew is developed on (link([GitHub][5])link). To report a bug, head over there and
 create a new issue.
 
 
