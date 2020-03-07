@@ -173,12 +173,12 @@ should do:
 (h1(Uninstall
 =========)h1)
 
-To remove rakubrew and any Perl 6 implementations it has installed on your
+To remove rakubrew and any Raku implementations it has installed on your
 system, delete the  (code(`~/.rakubrew`)code) and (code(`~/.local/share/rakubrew`)code) directories.
 
 
-(h1(Git annoyances
-==============)h1)
+(h1(Common Errors
+=============)h1)
 
 (h2(Git not found
 -------------)h2)
@@ -202,6 +202,17 @@ firewalls by setting the (code(`GIT_PROTOCOL`)code) environment variable:
     GIT_PROTOCOL=https rakubrew list-available
     (c(# for ssh)c)
     GIT_PROTOCOL=ssh rakubrew list-available
+
+
+(h2(Build failing, build dir with spaces
+------------------------------------)h2)
+
+Rakudo can currently not be built in a directory that contains spaces. As a
+result the (code(`rakubrew build`)code) and (code(`rakubrew triple`)code) commands also can't work when
+rakubrew is installed in a directory with spaces in the path. To circumvent
+this limitation change the rakubrew home to a different path that contains no
+spaces. See the `Installation path` paragraph above for instructions on how to
+do so.
 
 
 (h1(Command-line switches
