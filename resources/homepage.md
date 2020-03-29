@@ -1,9 +1,24 @@
+(large-header(
                          (lk(__)lk)        (lb(___)lb)                         
           (lr(_______)lr)(la(_____)la)  (lk(|  | __)lk)(lu(__ _)lu)(lb(\  |_________   ______  _  __)lb)
           (lr(\_  __ \)lr)(la(__  \)la) (lk(|  |/ /)lk)(lu(  |  \)lu)(lb( __ \_  __ \_/ __ \ \/ \/ /)lb)
           (lr( |  | \/)lr)(la(/ __ \)la)(lk(|    <)lk)(lu(|  |  /)lu)(lb( \_\ \  | \/\  ___/\     / )lb)
           (lr( |__|)lr)  (la((______/)la)(lk(__|__\)lk)(lu(____/)lu)(lb(|_____/__|    \_____>\/\_/  )lb)
                                                            (ver()ver)
+)large-header)(medium-header(
+                         (lk(__)lk)
+          (lr(_______)lr)(la(_____)la)  (lk(|  | __)lk)(lu(__ __)lu)
+          (lr(\_  __ \)lr)(la(__  \)la) (lk(|  |/ /)lk)(lu(  |  \)lu)
+        (lb(___)lb)(lr(|  | \/)lr)(la(/ __ \)la)(lk(|    <)lk)(lu(|  |  /)lu)
+        (lb(\  )lb)(lr(|__|)lr)(lb(__)lb)(la((______/)la)(lk(__|__\)lk)(lu(____/)lu)(lb(_)lb)
+         (lb(| __ \_  __ \_/ __ \ \/ \/ /)lb)
+         (lb(| \_\ \  | \/\  ___/\     / )lb)
+         (lb(|_____/__|    \_____>\/\_/  )lb)
+                                (ver()ver)
+)medium-header)(small-header(
+  (lr(r)lr)(la(a)la)(lk(k)lk)(lu(u)lu)(lb(brew)lb)
+  (ver()ver)
+)small-header)
 
 rakubrew (called rakudobrew in a previous life) is a (link([Raku][1])link) installation
 tool. It allows to have multiple versions of different Raku implementations

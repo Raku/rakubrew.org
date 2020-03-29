@@ -90,6 +90,13 @@ class Homepage {
         c 'lb', magenta, :bold;
 
         if $client eq 'browser' {
+            $page ~~ s:g[ \(large\-header\( \n (.+?) \n \)large\-header\) ]
+                = "<span id='large-header'>{$0}</span>";
+            $page ~~ s:g[ \(medium\-header\( \n (.+?) \n \)medium\-header\) ]
+                = "<span id='medium-header'>{$0}</span>";
+            $page ~~ s:g[ \(small\-header\( \n (.+?) \n \)small\-header\) ]
+                = "<span id='small-header'>{$0}</span>";
+
             my %urls;
             $page ~~ s:g[ \(url\( \[ (\d+) \]\: ' ' (.+?) \)url\) ] = {
                 %urls{$0} = $1;
@@ -107,6 +114,13 @@ class Homepage {
                 = "<a href=\"$0\">{$c.color(bright-magenta, $0, :ul)}</a>";
         }
         else {
+            $page ~~ s:g[ \(large\-header\( \n (.+?) \n \)large\-header\) ]
+                = $0;
+            $page ~~ s:g[ \(medium\-header\( \n (.+?) \n \)medium\-header\) ]
+                = '';
+            $page ~~ s:g[ \(small\-header\( \n (.+?) \n \)small\-header\) ]
+                = '';
+
             $page ~~ s:g[ \(url\( \[ (\d+) \]\: ' ' (.+?) \)url\) ]
                 = "[{$c.color(green, $0)}]: {$c.color(bright-magenta, $1, :ul)}";
 

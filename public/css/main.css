@@ -3,5 +3,37 @@ body {
     justify-content: center;
 }
 .console-div {
-    width: 80ch;
+    max-width: 100%;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+#medium-header {
+    display: none;
+}
+#small-header {
+    display: none;
+}
+
+@media (max-width: 70ch) and (min-width: 40ch) {
+    #large-header {
+        display: none;
+    }
+    #medium-header {
+        display: unset;
+    }
+}
+
+@media (max-width: 40ch) {
+    #large-header {
+        display: none;
+    }
+    #medium-header {
+        display: none;
+    }
+    #small-header {
+        display: unset;
+    }
 }
