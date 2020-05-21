@@ -1,9 +1,8 @@
 #!/usr/bin/env sh
 
 set -o errexit
-set -o pipefail
 
-for cmd in "rakudobrew", "p6env"; do
+for cmd in "rakudobrew" "p6env"; do
     if command -v $cmd >/dev/null 2>&1 ; then
         echo "A previous $cmd installation was found. rakubrew can not be used in"
         echo "parallel with other Raku version managers."
@@ -28,7 +27,7 @@ else
 fi
 
 chmod +x "$TMP_DIR/rakubrew"
-: ${RAKUBREW_HOME:="$($TMP_DIR/rakubrew home)"}
+: "${RAKUBREW_HOME:="$("$TMP_DIR"/rakubrew home)"}"
 
 if [ -e "$RAKUBREW_HOME/bin/rakubrew" ]; then
     echo "A previous rakubrew installation was found here: $RAKUBREW_HOME" 1>&2
