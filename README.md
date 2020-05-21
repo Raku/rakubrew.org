@@ -1,7 +1,10 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/raku/rakubrew.org/badge)](https://www.codefactor.io/repository/github/raku/rakubrew.org)
+
 rakubrew.org
 ============
 
 The rakubrew.org website.
+
 
 Development
 -----------
