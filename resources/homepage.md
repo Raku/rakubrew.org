@@ -33,7 +33,7 @@ installed in parallel and switch between them. It's a (link([perlbrew][2])link) 
     (i(-)i) Windows, MacOS, Linux, BSD
     (i(-)i) Powershell, CMD, Bash, Zsh, Fish, ...
 (i(-)i) No dependencies except Perl on Unixy machines
-(i(-)i) Can get raku installed and running in seconds
+(i(-)i) Can get Raku installed and running in seconds
 (i(-)i) Autocomplete
 
 
@@ -83,9 +83,8 @@ That's all!
 (h2(`env` mode
 ----------)h2)
 
-If you want to use (code(`env`)code) mode, use the (code(`shell`)code) command or use auto-completion,
-you need to install the shell hook. To get the instructions on how to do that
-with
+If you want to use (code(`env`)code) mode, the (code(`shell`)code) command or have auto-completion, you
+need to install the shell hook. To get the instructions on how to do that type
 
     rakubrew init
 
@@ -370,8 +369,8 @@ Display the version of this rakubrew installation and some other information
 helpful for debugging. Include this information when you report a bug.
 
 
-(h1(Bugs'n'Development
-==================)h1)
+(h1(Bugs 'n' Development
+====================)h1)
 
 rakubrew is developed on (link([GitHub][5])link). To report a bug, head over there and
 create a new issue.
