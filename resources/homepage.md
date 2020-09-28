@@ -268,8 +268,8 @@ Regenerate all shims. Newly installed scripts will not work unless this is
 called. This is only necessary in (code(`shim`)code) mode.
 
 
-(h2(`list-available`
-----------------)h2)
+(h2(`list-available` or `available`
+-------------------------------)h2)
 
 List all Raku versions that can be installed.
 
