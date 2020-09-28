@@ -113,7 +113,7 @@ client to install (code(`App::Rakubrew`)code).
 ===)h1)
 
     (c(# list available versions)c)
-    rakubrew list
+    rakubrew available
     
     (c(# download and install the latest Rakudo on MoarVM version)c)
     rakubrew download
