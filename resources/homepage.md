@@ -43,7 +43,7 @@ installed in parallel and switch between them. It's a (link([perlbrew][2])link) 
 (platform-linux(
 Just copy and paste the following piece of code into a console.
 
-    curl (inline_url(https://rakubrew.org/install-on-perl.sh)inline_url) | sh
+    curl (inline_url(https://rakubrew.org/install-on-perl.sh)inline_url) | bash
 )platform-linux)
 (platform-win(
 On (code(`CMD`)code) you need to download (inline_url(https://rakubrew.org/install-on-cmd.bat)inline_url) and then
@@ -57,7 +57,7 @@ Powershell window (Don't forget the "." at the start of the command!):
 (platform-macos(
 Just copy and paste the following piece of code into a console.
 
-    curl (inline_url(https://rakubrew.org/install-on-macos.sh)inline_url) | sh
+    curl (inline_url(https://rakubrew.org/install-on-macos.sh)inline_url) | bash
 )platform-macos)
 
 
