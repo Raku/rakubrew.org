@@ -28,7 +28,7 @@ class Releases {
     method !get-releases() {
         my @releases;
         @releases.push: Release.new(dir => $_) for $!release-dir.dir;
-        @releases .= sort: { $^b.version leg $^a.version };
+        @releases .= sort: { $^b.version <=> $^a.version };
         @releases;
     }
 
