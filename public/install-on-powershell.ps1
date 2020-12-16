@@ -53,7 +53,7 @@ if (Test-Path $RAKUBREW_HOME\bin\rakubrew.exe -PathType leaf) {
 echo "Installing rakubrew to $RAKUBREW_HOME ..."
 echo ""
 
-New-Item -Path "$RAKUBREW_HOME\bin" -ItemType "Directory" -Force
+New-Item -Path "$RAKUBREW_HOME\bin" -ItemType "Directory" -Force | Out-Null
 mv "$TMP_DIR\rakubrew.exe" "$RAKUBREW_HOME\bin\rakubrew.exe"
 rm -r $TMP_DIR
 
