@@ -71,9 +71,9 @@ class Homepage {
         $page = escape-html $page if $client eq 'browser';
 
         my $ver-str = 'v' ~ $!releases.get-latest-version;
-        $page ~~ s:g[ \(ver\(\)ver\) ] = ' ' x (4 - $ver-str.elems) ~ $ver-str;
+        $page ~~ s:g[ "(ver()ver)" ] = ' ' x (4 - $ver-str.elems) ~ $ver-str;
 
-        $page ~~ s:g[ \n \(platform\-(\w+)\( (.+?) \n \)platform\-$0\) ] = $platform eq $0 ?? $1 !! '';
+        $page ~~ s:g[ \n "(platform-" (\w+) "(" (.+?) \n ")platform-" $0 ")" ] = $platform eq $0 ?? $1 !! '';
 
         sub c($marker, $color, :$bold, :$ul) {
             $page ~~ s:g[ \( $marker \( (.+?) \) $marker \) ] = $c.color($color, $0, :$bold, :$ul);
@@ -93,27 +93,27 @@ class Homepage {
             $page ~~ s:g[ "(only-browser(" (.+) ")only-browser)" ] = $0;
             $page ~~ s:g[ "(only-console(" (.+) ")only-console)" ] = '';
 
-            $page ~~ s:g[ \(large\-header\( \n (.+?) \n \)large\-header\) ]
+            $page ~~ s:g[ "(large-header(" \n (.+?) \n ")large-header)" ]
                 = "<span id='large-header'>{$0}</span>";
-            $page ~~ s:g[ \(medium\-header\( \n (.+?) \n \)medium\-header\) ]
+            $page ~~ s:g[ "(medium-header(" \n (.+?) \n ")medium-header)" ]
                 = "<span id='medium-header'>{$0}</span>";
-            $page ~~ s:g[ \(small\-header\( \n (.+?) \n \)small\-header\) ]
+            $page ~~ s:g[ "(small-header(" \n (.+?) \n ")small-header)" ]
                 = "<span id='small-header'>{$0}</span>";
 
             my %urls;
-            $page ~~ s:g[ \(url\( \[ (\d+) \]\: ' ' (.+?) \)url\) ] = {
+            $page ~~ s:g[ "(url([" (\d+) "]: " (.+?) ")url)" ] = {
                 %urls{$0} = $1;
                 "[<a name=\"link-$0\">{$c.color(green, $0, :ul)}</a>]: <a href=\"$1\">{$c.color(bright-magenta, $1, :ul)}</a>";
             }();
 
-            $page ~~ s:g[ \(link\( \[ (.+?) \]\[ (.+?) \] \)link\) ]
+            $page ~~ s:g[ "(link([" (.+?) "][" (.+?) "])link)" ]
                 = "[<a href=\"%urls{$1}\">{$c.color(bright-magenta, $0, :ul)}</a>][<a href=\"#link-$1\">{$c.color(green, $1, :ul)}</a>]";
 
             my $html-tick = escape-html('`');
-            $page ~~ s:g[ \(code\( $html-tick (.+?) $html-tick \)code\) ]
+            $page ~~ s:g[ "(code(" $html-tick (.+?) $html-tick ")code)" ]
                 = $c.color(green, "`$0`", :bold);
 
-            $page ~~ s:g[ \(inline_url\( (.+?) \)inline_url\) ]
+            $page ~~ s:g[ "(inline_url(" (.+?) ")inline_url)" ]
                 = "<a href=\"$0\">{$c.color(bright-magenta, $0, :ul)}</a>";
 
             $page ~~ s:g[ "(web-link(" (.+?) "|" (.+?) ")web-link)" ]
@@ -126,23 +126,23 @@ class Homepage {
             $page ~~ s:g[ "(only-browser(" (.+) ")only-browser)" ] = '';
             $page ~~ s:g[ "(only-console(" (.+) ")only-console)" ] = $0;
 
-            $page ~~ s:g[ \(large\-header\( \n (.+?) \n \)large\-header\) ]
+            $page ~~ s:g[ "(large-header(" \n (.+?) \n ")large-header)" ]
                 = $0;
-            $page ~~ s:g[ \(medium\-header\( \n (.+?) \n \)medium\-header\) ]
+            $page ~~ s:g[ "(medium-header(" \n (.+?) \n ")medium-header)" ]
                 = '';
-            $page ~~ s:g[ \(small\-header\( \n (.+?) \n \)small\-header\) ]
+            $page ~~ s:g[ "(small-header(" \n (.+?) \n ")small-header)" ]
                 = '';
 
-            $page ~~ s:g[ \(url\( \[ (\d+) \]\: ' ' (.+?) \)url\) ]
+            $page ~~ s:g[ "(url([" (\d+) "]: " (.+?) ")url)" ]
                 = "[{$c.color(green, $0)}]: {$c.color(bright-magenta, $1, :ul)}";
 
-            $page ~~ s:g[ \(link\( \[ (.+?) \]\[ (.+?) \] \)link\) ]
+            $page ~~ s:g[ "(link([" (.+?) "][" (.+?) "])link)" ]
                 = "[{$c.color(bright-magenta, $0, :ul)}][{$c.color(green, $1)}]";
 
-            $page ~~ s:g[ \(code\( \` (.+?) \` \)code\) ]
+            $page ~~ s:g[ "(code(`" (.+?) "`)code)" ]
                 = $c.color(green, "`$0`", :bold);
 
-            $page ~~ s:g[ \(inline_url\( (.+?) \)inline_url\) ]
+            $page ~~ s:g[ "(inline_url(" (.+?) ")inline_url)" ]
                 = $c.color(bright-magenta, $0, :ul);
         }
 
