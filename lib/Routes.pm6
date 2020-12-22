@@ -8,10 +8,12 @@ sub routes($release-store, $homepage) is export {
         get -> :$user-agent is header where m:i/wget|curl/ {
             content 'text/plain', $homepage.render('console', 'linux');
         }
-        get -> :$user-agent is header {
-            my $platform = $user-agent ~~ m:i/Windows/ ?? 'win'
-                !! $user-agent ~~ m:i/ os \s x | Macintosh | iPhone | iPad | iPod / ?? 'macos'
-                !! 'linux';
+        get -> :$user-agent is header, :$platform is copy {
+            if !$platform.defined || $platform !~~ / linux | win | macos / {
+                $platform = $user-agent ~~ m:i/Windows/ ?? 'win'
+                    !! $user-agent ~~ m:i/ os \s x | Macintosh | iPhone | iPad | iPod / ?? 'macos'
+                    !! 'linux';
+            }
             content 'text/html', render-template('base.crotmp', {
                 content     => $homepage.render('browser', $platform),
                 head-matter => '<link rel="stylesheet" href="css/' ~ ($platform eq 'win' ?? 'win.css' !! 'linux.css') ~ '">',

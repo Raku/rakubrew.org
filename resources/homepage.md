@@ -18,8 +18,20 @@
 )medium-header)(small-header(
   (lr(r)lr)(la(a)la)(lk(k)lk)(lu(u)lu)(lb(brew)lb)
   (ver()ver)
-)small-header)
+)small-header)(only-browser(
 
+/----------v---------v-------\
+(platform-linux(
+| (web-link-sel(Unix-ish|?platform=linux)web-link-sel) | (web-link(Windows|?platform=win)web-link) | (web-link(MacOS|?platform=macos)web-link) |
+)platform-linux)
+(platform-win(
+| (web-link(Unix-ish|?platform=linux)web-link) | (web-link-sel(Windows|?platform=win)web-link-sel) | (web-link(MacOS|?platform=macos)web-link) |
+)platform-win)
+(platform-macos(
+| (web-link(Unix-ish|?platform=linux)web-link) | (web-link(Windows|?platform=win)web-link) | (web-link-sel(MacOS|?platform=macos)web-link-sel) |
+)platform-macos)
+\----------^---------^-------/
+)only-browser)
 rakubrew (called rakudobrew in a previous life) is a (link([Raku][1])link) installation
 tool. It allows to have multiple versions of different Raku implementations
 installed in parallel and switch between them. It's a (link([perlbrew][2])link) and

@@ -90,6 +90,9 @@ class Homepage {
         c 'lb', magenta, :bold;
 
         if $client eq 'browser' {
+            $page ~~ s:g[ "(only-browser(" (.+) ")only-browser)" ] = $0;
+            $page ~~ s:g[ "(only-console(" (.+) ")only-console)" ] = '';
+
             $page ~~ s:g[ \(large\-header\( \n (.+?) \n \)large\-header\) ]
                 = "<span id='large-header'>{$0}</span>";
             $page ~~ s:g[ \(medium\-header\( \n (.+?) \n \)medium\-header\) ]
@@ -112,8 +115,17 @@ class Homepage {
 
             $page ~~ s:g[ \(inline_url\( (.+?) \)inline_url\) ]
                 = "<a href=\"$0\">{$c.color(bright-magenta, $0, :ul)}</a>";
+
+            $page ~~ s:g[ "(web-link(" (.+?) "|" (.+?) ")web-link)" ]
+                = "<a href=\"$1\">{$c.color(green, $0)}</a>";
+
+            $page ~~ s:g[ "(web-link-sel(" (.+?) "|" (.+?) ")web-link-sel)" ]
+                = "<a href=\"$1\">{$c.color(green, $0, :bold)}</a>";
         }
         else {
+            $page ~~ s:g[ "(only-browser(" (.+) ")only-browser)" ] = '';
+            $page ~~ s:g[ "(only-console(" (.+) ")only-console)" ] = $0;
+
             $page ~~ s:g[ \(large\-header\( \n (.+?) \n \)large\-header\) ]
                 = $0;
             $page ~~ s:g[ \(medium\-header\( \n (.+?) \n \)medium\-header\) ]
