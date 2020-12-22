@@ -1,17 +1,32 @@
-body {
-    font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif !important;
-    font-weight: 400 !important;
-    font-size: .8rem !important;
-    line-height: 1rem !important;
+@font-face {
+  font-family: 'Cascadia Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Cascadia Mono'), local('CascadiaMono-Regular'), url(/fonts/CascadiaMono-Regular.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Cascadia Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Cascadia Mono Bold'), local('CascadiaMono-Bold'), url(/fonts/CascadiaMono-Bold.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
-    background-color: #012456;
-    color: #EEEDF0;
+body {
+    font-family: 'Cascadia Mono' !important;
+    font-weight: 400 !important;
+
+    background-color: #0C0C0C;
+    color: #CCCCCC;
 }
 
 pre {
-    font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif !important;
+    font-family: 'Cascadia Mono' !important;
     font-weight: 400 !important;
-    font-size: .8rem !important;
+    font-size: 12pt !important;
     line-height: 1rem !important;
 }
 
@@ -39,17 +54,11 @@ pre {
 }
 
 .blue {
-    /* CMD */
-    /* color: #0037DA; */
-    /* PowerShell */
-    color: #012456;
+    color: #0037DA;
 }
 
 .magenta {
-    /* CMD */
-    /* color: #881798; */
-    /* PowerShell */
-    color: #EEEDF0;
+    color: #881798;
 }
 
 .cyan {
@@ -91,4 +100,3 @@ pre {
 .bright-white {
     color: #F2F2F2;
 }
-
