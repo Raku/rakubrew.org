@@ -311,10 +311,10 @@ Build a specific set of Rakudo, NQP and MoarVM commits.
 Register an externaly built / installed Raku version with rakubrew.
 
 
-(h2(`build-zef`
------------)h2)
+(h2(`build-zef [<zef-version>]`
+-------------------------)h2)
 
-Install Zef into the current Raku version.
+Install Zef (at the given version) into the current Rakudo version.
 
 
 (h2(`download[-rakudo] [<%backends%>] [<rakudo-version>]`
