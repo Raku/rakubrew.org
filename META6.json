@@ -12,9 +12,9 @@
   ],
   "tags": [ "web", "app" ],
   "provides": {
-    "Homepage.pm6": "lib/Homepage.pm6",
-    "Releases.pm6": "lib/Releases.pm6",
-    "Routes.pm6": "lib/Routes.pm6"
+    "Homepage": "lib/Homepage.rakumod",
+    "Releases": "lib/Releases.rakumod",
+    "Routes": "lib/Routes.rakumod"
   },
   "resources": [
     "homepage.md"
