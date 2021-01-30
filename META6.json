@@ -3,9 +3,9 @@
   "description":  "rakubrew.org website",
   "version":      "0.0.1",
   "meta-version": "0",
-  "perl":         "6.*",
+  "perl":         "6.d",
   "source-url":   "https://github.com/Raku/rakubrew.org.git",
-  "auth":         "github:patrickbkr",
+  "auth":         "zef:patrickb",
   "license":      "Artistic-2.0",
   "authors": [
     "Patrick Böker"
@@ -20,9 +20,9 @@
     "homepage.md"
   ],
   "depends": [
-    "Cro::HTTP",
-    "Cro::WebApp",
-    "HTML::Escape"
+    "Cro::HTTP:ver<0.8.4>",
+    "Cro::WebApp:ver<0.8.4>",
+    "HTML::Escape:ver<0.0.1>"
   ],
   "build-depends": [
   ],
