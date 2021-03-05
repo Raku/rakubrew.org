@@ -60,13 +60,14 @@ class ConsoleColorizer is Colorizer {
 }
 
 class Homepage {
-    has $!template = %?RESOURCES<homepage.md>.slurp;
+    has $!md-template = %?RESOURCES<homepage.md.tmpl>.slurp;
+    has $!html-template = %?RESOURCES<index.html.tmpl>.slurp;
     has $!console-colorizer = ConsoleColorizer.new;
     has $!html-colorizer = HTMLColorizer.new;
     has $.releases is required;
 
     method !colorify($platform, $client, $c) {
-        my $page = $!template;
+        my $page = $!md-template;
 
         $page = escape-html $page if $client eq 'browser';
 
@@ -155,7 +156,10 @@ class Homepage {
                 return self!colorify: $platform, $client, $!console-colorizer;
             }
             when 'browser' {
-                return '<div class="console-div"><pre>' ~ self!colorify($platform, $client, $!html-colorizer) ~ '</pre></div>';
+                my $html = $!html-template;
+                $html ~~ s[ '<&head-matter&>' ] = '<link rel="stylesheet" href="css/' ~ ($platform eq 'win' ?? 'win.css' !! 'linux.css') ~ '">';
+                $html ~~ s[ '<&content&>' ] = '<div class="console-div"><pre>' ~ self!colorify($platform, $client, $!html-colorizer) ~ '</pre></div>';
+                return $html;
             }
         }
     }

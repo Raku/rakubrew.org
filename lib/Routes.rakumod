@@ -1,5 +1,4 @@
 use Cro::HTTP::Router;
-use Cro::WebApp::Template;
 use Releases;
 use Homepage;
 
@@ -14,10 +13,7 @@ sub routes($release-store, $homepage) is export {
                     !! $user-agent ~~ m:i/ os \s x | Macintosh | iPhone | iPad | iPod / ?? 'macos'
                     !! 'linux';
             }
-            content 'text/html', render-template('base.crotmp', {
-                content     => $homepage.render('browser', $platform),
-                head-matter => '<link rel="stylesheet" href="css/' ~ ($platform eq 'win' ?? 'win.css' !! 'linux.css') ~ '">',
-            });
+            content 'text/html', $homepage.render('browser', $platform);
         }
 
         get -> $platform where any($release-store.platforms), $name where m/rakubrew(\.exe)?/ {

@@ -17,11 +17,11 @@
     "Routes": "lib/Routes.rakumod"
   },
   "resources": [
-    "homepage.md"
+    "homepage.md.tmpl",
+    "index.html.tmpl"
   ],
   "depends": [
     "Cro::HTTP:ver<0.8.4>",
-    "Cro::WebApp:ver<0.8.4>",
     "HTML::Escape:ver<0.0.1>"
   ],
   "build-depends": [
