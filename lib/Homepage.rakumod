@@ -65,14 +65,14 @@ class Homepage {
     has $!console-colorizer = ConsoleColorizer.new;
     has $!html-colorizer = HTMLColorizer.new;
     has $.releases is required;
+    has %!cache;
 
-    method !colorify($platform, $client, $c) {
+    method !colorify($platform, $client, $ver, $c) {
         my $page = $!md-template;
 
         $page = escape-html $page if $client eq 'browser';
 
-        my $ver-str = 'v' ~ $!releases.get-latest-version;
-        $page ~~ s:g[ "(ver()ver)" ] = ' ' x (4 - $ver-str.elems) ~ $ver-str;
+        $page ~~ s:g[ "(ver()ver)" ] = ' ' x (4 - $ver.elems) ~ $ver;
 
         $page ~~ s:g[ \n "(platform-" (\w+) "(" (.+?) \n ")platform-" $0 ")" ] = $platform eq $0 ?? $1 !! '';
 
@@ -151,16 +151,26 @@ class Homepage {
     }
 
     method render($client, $platform) {
-        given $client {
-            when 'console' {
-                return self!colorify: $platform, $client, $!console-colorizer;
+        my $cache-key = "$client $platform";
+        if %!cache{$cache-key}:exists {
+            return %!cache{$cache-key};
+        }
+        else {
+            my $ver = 'v' ~ $!releases.get-latest-version;
+            my $page;
+            given $client {
+                when 'console' {
+                    $page = self!colorify: $platform, $client, $ver, $!console-colorizer;
+                }
+                when 'browser' {
+                    $page = $!html-template;
+                    $page ~~ s[ '<&head-matter&>' ] = '<link rel="stylesheet" href="css/' ~ ($platform eq 'win' ?? 'win.css' !! 'linux.css') ~ '">';
+                    $page ~~ s[ '<&content&>' ] = '<div class="console-div"><pre>' ~ self!colorify($platform, $client, $ver, $!html-colorizer) ~ '</pre></div>';
+                }
             }
-            when 'browser' {
-                my $html = $!html-template;
-                $html ~~ s[ '<&head-matter&>' ] = '<link rel="stylesheet" href="css/' ~ ($platform eq 'win' ?? 'win.css' !! 'linux.css') ~ '">';
-                $html ~~ s[ '<&content&>' ] = '<div class="console-div"><pre>' ~ self!colorify($platform, $client, $!html-colorizer) ~ '</pre></div>';
-                return $html;
-            }
+
+            %!cache{$cache-key} = $page;
+            return $page;
         }
     }
 }
