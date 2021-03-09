@@ -1,11 +1,8 @@
 use Cro::HTTP::Log::File;
 use Cro::HTTP::Server;
-use Cro::WebApp::Template;
 use Routes;
 use Releases;
 use Homepage;
-
-template-location $*PROGRAM.parent.add('templates');
 
 my $release-dir = %*ENV<RAKUBREW_ORG_RELEASES_DIR>;
 if !$release-dir {
