@@ -151,12 +151,12 @@ class Homepage {
     }
 
     method render($client, $platform) {
-        my $cache-key = "$client $platform";
+        my $ver = 'v' ~ $!releases.get-latest-version;
+        my $cache-key = "$client $platform $ver";
         if %!cache{$cache-key}:exists {
             return %!cache{$cache-key};
         }
         else {
-            my $ver = 'v' ~ $!releases.get-latest-version;
             my $page;
             given $client {
                 when 'console' {
