@@ -115,7 +115,7 @@ class Homepage {
                 = $c.color(green, "`$0`", :bold);
 
             $page ~~ s:g[ "(inline_url(" (.+?) ")inline_url)" ]
-                = "<a href=\"$0\">{$c.color(bright-magenta, $0, :ul)}</a>";
+                = "<a href=\"{ $0.subst("\n",'') }\">{$c.color(bright-magenta, $0, :ul)}</a>";
 
             $page ~~ s:g[ "(web-link(" (.+?) "|" (.+?) ")web-link)" ]
                 = "<a href=\"$1\">{$c.color(green, $0)}</a>";

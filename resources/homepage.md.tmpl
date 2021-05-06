@@ -20,7 +20,7 @@
   (ver()ver)
 )small-header)(only-browser(
 
-/----------v---------v-------\
++----------v---------v-------+
 (platform-linux(
 | (web-link-sel(Unix-ish|?platform=linux)web-link-sel) | (web-link(Windows|?platform=win)web-link) | (web-link(MacOS|?platform=macos)web-link) |
 )platform-linux)
@@ -30,7 +30,7 @@
 (platform-macos(
 | (web-link(Unix-ish|?platform=linux)web-link) | (web-link(Windows|?platform=win)web-link) | (web-link-sel(MacOS|?platform=macos)web-link-sel) |
 )platform-macos)
-\----------^---------^-------/
++----------^---------^-------+
 )only-browser)
 rakubrew (called rakudobrew in a previous life) is a (link([Raku][1])link) installation
 tool. It allows to have multiple versions of different Raku implementations
@@ -85,6 +85,14 @@ First download the right rakubrew executable for your platform:
     Mac OS:   (inline_url(https://rakubrew.org/macos/rakubrew)inline_url)
     Windows:  (inline_url(https://rakubrew.org/win/rakubrew.exe)inline_url)
 
+(platform-macos(
+After downloading the file with a browser you first need to open it according
+to the instructions at (inline_url(https://support.apple.com/guide/mac-help/open-a-mac-app-f
+rom-an-unidentified-developer-mh40616)inline_url)
+to tell MacOS' security system that you are actually sure you want to open the
+file.
+
+)platform-macos)
 Put that file into a folder that's in your (code(`PATH`)code) and run
 
     rakubrew mode shim
@@ -92,7 +100,7 @@ Put that file into a folder that's in your (code(`PATH`)code) and run
 That's all!
 
 
-(h2(`env` mode
+(h2(Shell hook
 ----------)h2)
 
 If you want to use (code(`env`)code) mode, the (code(`shell`)code) command or have auto-completion, you
@@ -231,6 +239,28 @@ rakubrew is installed in a directory with spaces in the path. To circumvent
 this limitation change the rakubrew home to a different path that contains no
 spaces. See the `Installation path` paragraph above for instructions on how to
 do so.
+
+
+(h2("rakubrew" cannot be opened because the developer cannot be verified
+--------------------------------------------------------------------)h2)
+
+If you observe an error message similar to this
+
+    "rakubrew" cannot be opened because the developer cannot be verified.
+    macOS cannot verify that this app is free from malware.
+    Chrome downloaded this file today at 10:08 AM from rakubrew.org
+
+then MacOS is blocking you from running rakubrew, because (code(`rakubrew`)code) is an
+unsigned executable. To solve this you need to open the (code(`rakubrew`)code) executable
+according to the instructions at (inline_url(https://support.apple.com/guide/mac-help/open-a
+-mac-app-from-an-unidentified-developer-mh40616)inline_url).
+
+Why don't we sign the rakubrew executable?
+
+Sadly signing executables requires an Apple Developer Program account, which
+costs $99 per year. I do not want to pay that yearly fee for publishing a free
+and open source application. (I don't even own a Mac!) So we'll just have to
+live with unsigned executables and the above inconvenience for the time being.
 
 
 (h1(Command-line switches
