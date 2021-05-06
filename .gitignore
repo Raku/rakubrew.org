@@ -1,7 +1,12 @@
 releases/
+rakubrew.org_latest.tar
+rakubrew.org_latest.tar.gz
 
 # Caches
 .precomp/
 
 # Backup files
 *~
+
+# Comma files
+.idea/
