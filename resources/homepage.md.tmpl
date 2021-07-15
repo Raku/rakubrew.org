@@ -313,7 +313,10 @@ called. This is only necessary in (code(`shim`)code) mode.
 (h2(`list-available` or `available`
 -------------------------------)h2)
 
-List all Raku versions that can be installed.
+List all Rakudo versions that can be installed.
+Installed versions will be marked with an asterisk at the beginning of the line.
+Releases marked with a 'D' have a precompiled archive available and can be
+downloaded and installed without compilation with the (code(`download`)code) subcommand.
 
 
 (h2(`build[-rakudo] [jvm|moar|moar-blead|all] [tag|branch|sha-1] [--configure-opts=]`
@@ -402,6 +405,12 @@ Run tests in the current or given version.
 Display an overview of rakubrew commands.
 Add a specific command to display instructions for that command.
 Print the entire manual with the (code(`--verbose`)code) flag.
+
+
+(h2(`home`
+------)h2)
+
+Display the currently configured rakubrew home directory.
 
 
 (h2(`rakubrew-version`
