@@ -17,6 +17,11 @@ sub routes($release-store, $homepage) is export {
         }
 
         get -> $platform where any($release-store.platforms), $name where m/rakubrew(\.exe)?/ {
+            CATCH {
+                when X::UnknownPlatform { bad-request 'text/plain', "Unknown platform" }
+                when X::FileNotFound    { not-found 'text/plain', "File not found" }
+                when X::ReleaseNotFound { request.status = 500; content 'text/plain', 'No releases  found' }
+            }
             my %release = $release-store.get-latest-bin: $platform;
             given response {
                 .append-header: 'Content-Type', 'application/octet-stream';
@@ -29,6 +34,22 @@ sub routes($release-store, $homepage) is export {
 
         get -> 'releases' {
             content 'application/json', $release-store.get-index;
+        }
+
+        get -> 'files', $version, $platform, $filename {
+            CATCH {
+                when X::UnknownPlatform { bad-request 'text/plain', "Unknown platform" }
+                when X::FileNotFound    { not-found 'text/plain', "File not found" }
+                when X::ReleaseNotFound { not-found 'text/plain', 'Release not found' }
+            }
+            my %release = $release-store.get-bin: $version, $platform;
+            given response {
+                .append-header: 'Content-Type', 'application/octet-stream';
+                .append-header: 'Content-Disposition', 'attachment; filename="' ~ %release<filename> ~ '"';
+                .append-header: 'Content-Length', %release<path>.s;
+                .set-body:  %release<path>.slurp(:bin);
+                .status = 200;
+            }
         }
 
         get -> *@path {

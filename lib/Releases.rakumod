@@ -4,6 +4,11 @@ my %platforms =
     perl  => { bin => 'rakubrew' },
 ;
 
+class X::UnknownPlatform is Exception { }
+class X::NoReleasesFound is Exception { }
+class X::ReleaseNotFound is Exception { }
+class X::FileNotFound is Exception { }
+
 class Release {
     has UInt $.version;
     has Str $.changes;
@@ -15,9 +20,9 @@ class Release {
     }
 
     method get-bin($platform) {
-        die 'unknown platform' unless %platforms{$platform}:exists;
+        die X::UnknownPlatform.new unless %platforms{$platform}:exists;
         my $bin = $!dir.add($platform).add(%platforms{$platform}<bin>);
-        die 'file not found' unless $bin.f;
+        die X::FileNotFound.new unless $bin.f;
         $bin;
     }
 }
@@ -34,10 +39,19 @@ class Releases {
 
     method get-latest-bin($platform) {
         my @releases = self!get-releases;
-        die 'no releases found' unless @releases.elems;
+        die X::NoReleasesFound.new unless @releases.elems;
         {
             filename => %platforms{$platform}<bin>,
             path     => @releases[0].get-bin($platform),
+        }
+    }
+
+    method get-bin($version, $platform) {
+        my $release = self!get-releases.first({ $_.version == $version });
+        die X::ReleaseNotFound.new unless $release;
+        {
+            filename => %platforms{$platform}<bin>,
+            path     => $release.get-bin($platform),
         }
     }
 
@@ -51,7 +65,10 @@ class Releases {
             %index<releases>.push: {
                 version => $release.version,
                 changes => $release.changes,
-            }
+                files   => %(
+                    %platforms.keys.map({ $_ => 'files/' ~ $release.version ~ '/' ~ $_ ~ '/' ~ %platforms{$_}<bin> })
+                ),
+            };
             %index<latest> //=  $release.version;
             %index<latest> max= $release.version;
         }
