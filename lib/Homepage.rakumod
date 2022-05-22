@@ -147,12 +147,15 @@ class Homepage {
                 = $c.color(bright-magenta, $0, :ul);
         }
 
+        #$*VM.request-garbage-collection;
+
         $page;
     }
 
     method render($client, $platform) {
         my $ver = 'v' ~ $!releases.get-latest-version;
         my $cache-key = "$client $platform $ver";
+        #if False and %!cache{$cache-key}:exists {
         if %!cache{$cache-key}:exists {
             return %!cache{$cache-key};
         }
