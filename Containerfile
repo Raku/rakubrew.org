@@ -1,5 +1,5 @@
 # BUILD STAGE #########################
-FROM rakudo-zef:2021.04 AS build
+FROM rakudo-zef:2022.04 AS build
 
 RUN mkdir /app
 
