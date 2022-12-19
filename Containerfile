@@ -1,5 +1,5 @@
 # BUILD STAGE #########################
-FROM rakudo-zef:2022.04 AS build
+FROM rakudo-zef:2022.12 AS build
 
 RUN mkdir /app
 
@@ -23,7 +23,7 @@ RUN raku -c -I. service.raku
 RUN rm -rf releases .git .gitignore
 
 # FINAL STAGE #########################
-FROM alpine:3.13.1
+FROM alpine:3.17.0
 
 # Install runtime dependencies
 RUN apk add --no-cache openssl-dev
