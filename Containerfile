@@ -12,7 +12,7 @@ WORKDIR /app
 RUN apk add --no-cache openssl-dev
 
 COPY META6.json .
-RUN zef install --deps-only .
+RUN zef install --deps-only --/test .
 
 COPY . .
 RUN raku -c -I. service.raku
