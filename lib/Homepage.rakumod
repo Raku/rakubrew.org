@@ -91,8 +91,8 @@ class Homepage {
         c 'lb', magenta, :bold;
 
         if $client eq 'browser' {
-            $page ~~ s:g[ "(only-browser(" (.+) ")only-browser)" ] = $0;
-            $page ~~ s:g[ "(only-console(" (.+) ")only-console)" ] = '';
+            $page ~~ s:g[ "(only-browser(" (.+?) ")only-browser)" ] = $0;
+            $page ~~ s:g[ "(only-console(" (.+?) ")only-console)" ] = '';
 
             $page ~~ s:g[ "(large-header(" \n (.+?) \n ")large-header)" ]
                 = "<span id='large-header'>{$0}</span>";
@@ -124,8 +124,8 @@ class Homepage {
                 = "<a href=\"$1\">{$c.color(green, $0, :bold)}</a>";
         }
         else {
-            $page ~~ s:g[ "(only-browser(" (.+) ")only-browser)" ] = '';
-            $page ~~ s:g[ "(only-console(" (.+) ")only-console)" ] = $0;
+            $page ~~ s:g[ "(only-browser(" (.+?) ")only-browser)" ] = '';
+            $page ~~ s:g[ "(only-console(" (.+?) ")only-console)" ] = $0;
 
             $page ~~ s:g[ "(large-header(" \n (.+?) \n ")large-header)" ]
                 = $0;
