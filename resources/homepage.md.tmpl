@@ -99,7 +99,11 @@ Put that file into a folder that's in your (code(`PATH`)code) and run
 
 Finally add the shim folder to your path:
 
+    (c(# Bash & ZSH)c)
     export PATH=$(rakubrew home)/shims:$PATH
+    
+    (c(# Fish)c)
+    fish_add_path -g -a (rakubrew home)/shims
 
 That's all!
 
