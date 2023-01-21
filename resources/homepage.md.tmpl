@@ -79,31 +79,57 @@ Just copy and paste the following piece of code into a console.
 If the above installation script somehow doesn't work for you, you can install
 rakubrew manually.
 
-First download the right rakubrew executable for your platform:
+First download the rakubrew executable:
 
-    Unix-ish: (inline_url(https://rakubrew.org/perl/rakubrew)inline_url)
-    Mac OS:   (inline_url(https://rakubrew.org/macos/rakubrew)inline_url)
-    Windows:  (inline_url(https://rakubrew.org/win/rakubrew.exe)inline_url)
+(platform-linux(
+    (inline_url(https://rakubrew.org/perl/rakubrew)inline_url)
 
+Add the rakubrew and shim folders to your (code(`PATH`)code):
+
+    (c(# Bash & ZSH)c)
+    export PATH=/path/where/rakubrew/is:$PATH
+    export PATH=$(rakubrew home)/shims:$PATH
+    
+    (c(# Fish)c)
+    fish_add_path -g /path/where/rakubrew/is
+    fish_add_path -g (rakubrew home)/shims
+)platform-linux)
 (platform-macos(
+    (inline_url(https://rakubrew.org/macos/rakubrew)inline_url)
+
 After downloading the file with a browser you first need to open it according
 to the instructions at (inline_url(https://support.apple.com/guide/mac-help/open-a-mac-app-f
 rom-an-unidentified-developer-mh40616)inline_url)
 to tell MacOS' security system that you are actually sure you want to open the
 file.
 
-)platform-macos)
-Put that file into a folder that's in your (code(`PATH`)code) and run
-
-    rakubrew mode shim
-
-Finally add the shim folder to your path:
+Add the rakubrew and shim folders to your (code(`PATH`)code):
 
     (c(# Bash & ZSH)c)
+    export PATH=/path/where/rakubrew/is:$PATH
     export PATH=$(rakubrew home)/shims:$PATH
     
     (c(# Fish)c)
-    fish_add_path -g -a (rakubrew home)/shims
+    fish_add_path -g /path/where/rakubrew/is
+    fish_add_path -g (rakubrew home)/shims
+)platform-macos)
+(platform-win(
+    (inline_url(https://rakubrew.org/win/rakubrew.exe)inline_url)
+
+Add the rakubrew and shim folders to your (code(`PATH`)code):
+
+    (c(# Powershell)c)
+    $Env:Path = "/path/where/rakubrew/is;$Env:Path"
+    $Env:Path = "$(rakubrew home)/shims;$Env:Path"
+    
+    (c(# CMD)c)
+    SET PATH=/path/where/rakubrew/is;%PATH%
+    FOR /F "delims=" %i IN ('"rakubrew" home') DO SET PATH=%i/shims;%PATH%
+)platform-win)
+
+Finally run
+
+    rakubrew mode shim
 
 That's all!
 
