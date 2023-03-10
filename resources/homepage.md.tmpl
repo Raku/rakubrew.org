@@ -238,6 +238,42 @@ To remove rakubrew and any Raku implementations it has installed on your
 system, delete the  (code(`~/.rakubrew`)code) and (code(`~/.local/share/rakubrew`)code) directories.
 
 
+(h1(Automation
+==========)h1)
+
+Rakubrew is designed as a tool to be used by humans. Using it in automated
+workflows usually brings no benefit over building or downloading a Rakudo
+directly.
+
+To download and activate a pre-compiled Rakudo (which already includes Zef) the
+following few commands are a good fit:
+
+    VER=2020.07
+    BUILD_REV=01
+    NAME=rakudo-moar-$VER-$BUILD_REV-linux-x86_64-gcc
+    curl -o $NAME.tar.gz https://rakudo.org/dl/rakudo/$NAME.tar.gz
+    tar -xzf $NAME.tar.gz
+    rm $NAME.tar.gz
+    eval "$($NAME/scripts/set-env.sh --quiet)"
+
+To build and activate a Rakudo and Zef:
+
+    VER=2020.07
+    INST_DIR=/home/me/rakudo
+    NAME=rakudo-$VER
+    mkdir INST_DIR
+    curl -o $NAME.tar.gz https://rakudo.org/dl/rakudo/rakudo-$VER.tar.gz
+    tar -xzf $NAME.tar.gz
+    pushd $NAME
+    perl Configure.pl --gen-moar --make-install --prefix=$INST_DIR
+    PATH=$INST_DIR/bin:$INST_DIR/share/perl6/site/bin:$PATH
+    git clone https://github.com/ugexe/zef.git
+    cd zef
+    raku -I. bin/zef install .
+    popd
+    rm -rf $NAME.tar.gz $NAME
+
+
 (h1(Common Errors
 =============)h1)
 
