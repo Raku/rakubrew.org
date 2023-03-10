@@ -22,7 +22,7 @@ if [ -n "$HAS_CURL" ]; then
 elif [ -n "$HAS_WGET" ]; then
     wget -q https://rakubrew.org/perl/rakubrew -O "$TMP_DIR/rakubrew"
 else
-    echo "Neither curl nor wget found. Can'd download. Aborting." 1>&2
+    echo "Neither curl nor wget found. Can't download. Aborting." 1>&2
     exit 1
 fi
 
