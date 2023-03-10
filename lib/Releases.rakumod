@@ -1,7 +1,8 @@
 my %platforms =
-    win   => { bin => 'rakubrew.exe' },
-    macos => { bin => 'rakubrew' },
-    perl  => { bin => 'rakubrew' },
+    win       => { bin => 'rakubrew.exe' },
+    macos     => { bin => 'rakubrew' },
+    macos_arm => { bin => 'rakubrew' },
+    perl      => { bin => 'rakubrew' },
 ;
 
 class X::UnknownPlatform is Exception { }

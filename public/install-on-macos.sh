@@ -13,9 +13,14 @@ done
 
 TMP_DIR=$(mktemp -d -t 'rakubrew-temp-dir')
 
-echo "Downloading rakubrew..."
-
-curl -s https://rakubrew.org/macos/rakubrew -o "$TMP_DIR/rakubrew"
+if [ $(uname -m) == "arm64" ]; then
+    URL="https://rakubrew.org/macos_arm/rakubrew"
+    echo "Downloading rakubrew for MacOS ARM ..."
+else
+    URL="https://rakubrew.org/macos/rakubrew"
+    echo "Downloading rakubrew for MacOS x86_64 ..."
+fi
+curl -s $URL -o "$TMP_DIR/rakubrew"
 
 chmod +x "$TMP_DIR/rakubrew"
 : "${RAKUBREW_HOME:="$("$TMP_DIR"/rakubrew home)"}"
